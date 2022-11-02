@@ -15,7 +15,8 @@ namespace Noviembre.Core.Entidades
 
         public string Nombre { get; set; }
 
-        public static List<Estado> GetAll() { 
+        public static List<Estado> GetAll()
+        {
             List<Estado> estados = new List<Estado>();
             try
             {
@@ -27,32 +28,24 @@ namespace Noviembre.Core.Entidades
                     MySqlCommand command = new MySqlCommand(query, conexion.connection);
 
                     MySqlDataReader dataReader = command.ExecuteReader();
-                    while (dataReader.Read()) {
+                    while (dataReader.Read())
+                    {
                         Estado estado = new Estado();
                         estado.Id = int.Parse(dataReader["id"].ToString());
                         estado.Nombre = dataReader["nombre"].ToString();
 
                         estados.Add(estado);
-                    
-                    }
 
+                    }
                     dataReader.Close();
                     conexion.CloseConnection();
-
                 }
 
-
-            }
-            catch (Exception ex) {
+            }catch (Exception ex){
                 throw ex;
-                
-            
             }
-
             return estados;
-
-
-
         }
+
     }
 }
