@@ -9,7 +9,7 @@ namespace Noviembre.Core.Entidades
     public class Usuario {
         public int Id { get; set; } //privado notación pascal
 
-        public string Nombre { get; set; } 
+        public string Nombre { get; set; } // NOMBRE
 
         public string Email { get; set; }
 
